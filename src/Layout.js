@@ -1,16 +1,14 @@
 import React from 'react'
 import Header from './Layout/Header';
-import Master from './Layout/Master';
-import Detail from './Layout/Detail';
+import Content from './Layout/Content';
 
 let Layout = props =>{
     return (
         <div>
             <Header />
             <div className="blank"></div>
-            <div>
-                <Master />
-                <Detail />
+            <div className="container">
+               <Content />
             </div>
         </div>
     )
