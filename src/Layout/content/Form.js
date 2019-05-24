@@ -1,21 +1,26 @@
 import React from 'react'
+import LogIn from './form/LogIn'
+import SignIn from './form/SignIn'
+import Error from './../../components/Error'
 
 let Select = props =>{
     var selected = props.selected
     switch(selected){
         case 1:
-            return <div></div>
+            return <LogIn />
         break
         case 2:
-            return <div></div>
+            return <SignIn />
         break
+        default: 
+            return <Error />
     }
 }
 
 let Form = props =>{
     return(
         <div className="container">
-            <Select />
+            <Select selected={1}/>
         </div>
     )
 }

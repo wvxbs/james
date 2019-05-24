@@ -4,9 +4,7 @@ import Home from './content/Home'
 import Error from './../components/Error'
 
 let Select = props => {
-    var selected = props.selected
-
-    switch(selected){
+    switch(props.selected){
         case 1:
             return <Form />
         break
@@ -21,7 +19,9 @@ let Select = props => {
 }
 
 let Content = props => {
-    return <Select selected={1} />
+    return (
+        <Select selected={1} />
+    )
 
 }
 

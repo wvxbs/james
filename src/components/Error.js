@@ -2,10 +2,12 @@ import React from 'react'
 
 let Error = props => {
     return(
-        <div className="tile">
-            <h1 className="title is-danger">
-                Erro
-            </h1>
+        <div className="hero">
+            <div className="hero-body has-text-centered">
+                <h1 className="title has-text-weight-bold has-text-danger">
+                    Erro
+                </h1>
+            </div>
         </div>
     )
 }
