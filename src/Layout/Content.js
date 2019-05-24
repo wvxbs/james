@@ -1,18 +1,28 @@
 import React from 'react'
-import Master from './content/Master'
-import Detail from './content/Detail'
+import Form from './content/Form'
+import Home from './content/Home'
+import Error from './../components/Error'
+
+let Select = props => {
+    var selected = props.selected
+
+    switch(selected){
+        case 1:
+            return <Form />
+        break
+        case 2:
+            return <Home />
+        break
+        default:
+            return <Error />
+        
+    }
+
+}
 
 let Content = props => {
-    return (
-        <div className="columns">
-            <div className="column">
-                <Detail />
-            </div>
-            <div className="column is-one-quarter">
-                <Master />                    
-            </div>
-        </div>
-    )
+    return <Select selected={1} />
+
 }
 
 export default Content
