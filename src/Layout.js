@@ -4,7 +4,7 @@ import Content from './Layout/Content';
 
 let Layout = props =>{
     return (
-        <div>
+        <div >
             <Header />
             <div className="blank"></div>
             <div className="container">

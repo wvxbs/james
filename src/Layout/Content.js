@@ -6,10 +6,10 @@ let Content = props => {
     return (
         <div className="columns">
             <div className="column">
-                <Master />
+                <Detail />
             </div>
             <div className="column is-one-quarter">
-                <Detail />                    
+                <Master />                    
             </div>
         </div>
     )
