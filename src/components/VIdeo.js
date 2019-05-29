@@ -1,13 +1,13 @@
-import React from './node_modules/react'
+import React from 'react'
 
 let Video = props => {
     return (
-        <div className="tile is-ancestor">
-            <div>
-                <h1 className="subtitle">
-                    Video
-                </h1>
+            <div className="card video">
+                <div className="card-content">
+                    <h1 className="title">AAA</h1>
+                </div>
             </div>
-        </div>
     )
 }
+
+export default Video

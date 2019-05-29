@@ -1,10 +1,12 @@
 import React from 'react'
+import Icon from './../assets/icons/ico.png'
 
 let Header = props => {
     return(
         <div className="navbar is-white is-fixed-top">
             <div className="navbar-brand">
                 <span className="navbar-title">James</span>
+                <img src={Icon} />
             </div>
         </div>
     )

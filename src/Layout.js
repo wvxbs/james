@@ -7,7 +7,7 @@ let Layout = props =>{
         <div >
             <Header />
             <div className="blank"></div>
-            <div className="container">
+            <div className="container is-fluid">
                <Content />
             </div>
         </div>

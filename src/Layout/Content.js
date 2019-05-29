@@ -20,7 +20,7 @@ let Select = props => {
 
 let Content = props => {
     return (
-        <Select selected={1} />
+        <Select selected={2} />
     )
 
 }
