@@ -1,11 +1,12 @@
 import React from 'react'
+import Img from './video/Img';
+import Content from './video/Content';
 
 let Video = props => {
     return (
             <div className="card video">
-                <div className="card-content">
-                    <h1 className="title">AAA</h1>
-                </div>
+                <Img />
+                <Content />
             </div>
     )
 }

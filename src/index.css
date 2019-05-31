@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Righteous|H&display=swap");
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
@@ -6,13 +6,15 @@
     transform: rotate(359deg); } }
 
 body {
+  font-family: 'H', sans-serif;
   background-color: white;
   color: white;
   height: 100%;
   user-select: none; }
 
 .title {
-  color: #4a2668; }
+  color: #4a2668;
+  font-weight: bold; }
 
 .navbar {
   z-index: 999 !important;
@@ -40,8 +42,7 @@ body {
 .sidebar {
   height: 100%;
   width: 100%;
-  padding: 5px;
-  border-left: 1px solid rgba(0, 0, 0, 0.1); }
+  padding: 5px; }
 
 .error-hero {
   margin: 10px;
@@ -50,12 +51,11 @@ body {
 .video {
   transition: 300ms ease;
   margin: 10px;
+  background-color: white;
   min-width: 280px;
   max-width: 280px;
-  min-height: 220px;
-  max-height: 220px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(74, 38, 104, 0.1); }
+  box-shadow: 0 2px 5px rgba(74, 38, 104, 0.2); }
 
 @moedia only screen and (max-width: $tblet) {
   .video {
