@@ -6,7 +6,7 @@ let Video = props => {
     return (
             <div className="card video">
                 <Img />
-                <Content title={props.title} desc={props.desc}/>
+                <Content id={props.id} title={props.title} desc={props.desc}/>
             </div>
     )
 }

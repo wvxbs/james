@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Righteous|H&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Righteous|Lato&display=swap");
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
@@ -6,7 +6,7 @@
     transform: rotate(359deg); } }
 
 body {
-  font-family: 'H', sans-serif;
+  font-family: 'Lato', sans-serif;
   background-color: white;
   color: white;
   height: 100%;
@@ -18,7 +18,7 @@ body {
 
 .navbar {
   z-index: 999 !important;
-  box-shadow: 0 0 6px rgba(74, 38, 104, 0.2); }
+  box-shadow: 0 0 6px rgba(74, 38, 104, 0.1); }
 
 .navbar-brand img {
   margin: auto;
