@@ -4,9 +4,9 @@ let Content = props => {
     return(
         <div className="card-content">
             <h1 className="title">
-                aa
+                {props.title}
             </h1>
-            <p>AAAAAAAAAAAAAAAAAA vai se fuder</p>
+            <p>{props.desc}</p>
         </div>
     )
 }
