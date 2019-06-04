@@ -1,21 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Layout from './Layout';
-import axios from 'axios'
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
+
+let layoutSelector = selec => <Layout selected={selec} />
 
 let App = props => {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={}/>
-          <Route path="/homr" component={}/>
-          <Route path="/" component={}/>
-          <Route path="/" component={}/>
+          <Route path="/"  exact={true} component={() => layoutSelector(1) }/>
+          <Route path="/home" component={() => layoutSelector(2) } />
+          <Route path="/user" component={() => layoutSelector(3) } />
         </Switch>
       </BrowserRouter>
-      <div>
-        <Layout />
-      </div>
     )
 }
 

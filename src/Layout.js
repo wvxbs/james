@@ -8,7 +8,7 @@ let Layout = props =>{
             <Header />
             <div className="blank"></div>
             <div className="container is-fluid">
-               <Content />
+               <Content select={props.selected}/>
             </div>
         </div>
     )

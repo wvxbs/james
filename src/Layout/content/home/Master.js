@@ -1,13 +1,15 @@
 import React from 'react'
+import Sections from './master/Sections'
 
 let Master = props => {
     return (
         <div className="sidebar">
-            <div>
-                <h1 className="title">aaa</h1>
+            <div className="has-text-right">
+                <h1>aaaaaaaaaa</h1>
+                <Sections />
             </div>
         </div>
     )
 }
 
-export default Master
+export default Master   

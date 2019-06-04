@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from './../assets/icons/ico.png'
+import Icon from './../ico.png'
 
 let Header = props => {
     return(
