@@ -20,7 +20,7 @@ let Select = props =>{
 let Form = props =>{
     return(
         <div className="container">
-            <Select selected={1}/>
+            <Select selected={props.nav}/>
         </div>
     )
 }

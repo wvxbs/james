@@ -7,7 +7,7 @@ import Error from './../components/Error'
 let Select = props => {
     switch(props.selection){
         case 1:
-            return <Form />
+            return <Form nav={props.nav} />
         break
         case 2:
             return <Home />
@@ -24,7 +24,7 @@ let Select = props => {
 
 let Content = props => {
     return (
-        <Select selection={props.select} />
+        <Select selection={props.select} nav={props.nav} />
     )
 
 }

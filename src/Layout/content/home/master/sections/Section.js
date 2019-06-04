@@ -2,7 +2,7 @@ import React from 'react';
 import List from './List';
 
 let Section = props => {
-    const secItems = ['OOF', 'NOOF', 'WOFF']
+    const secItems = ['OOF', 'NOOF', 'WOFF','JOOJ']
 
     const listItems = secItems.map((item, i) => <List key={i} title={item} nav={i} />)
 
