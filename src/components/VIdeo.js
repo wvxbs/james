@@ -2,7 +2,7 @@ import React from 'react'
 import Img from './video/Img';
 import Content from './video/Content';
 
-let Video = props => {
+const Video = props => {
     return (
             <div className="card video">
                 <Img />

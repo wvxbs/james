@@ -1,6 +1,6 @@
 import React from 'react'
 
-let Img = props => {
+const Img = props => {
     return(
     <div className="card-image">
         <div className="image is-4by3">

@@ -3,7 +3,7 @@ import LogIn from './form/LogIn'
 import SignIn from './form/SignIn'
 import Error from './../../components/Error'
 
-let Select = props =>{
+const Select = props =>{
     var selected = props.selected
     switch(selected){
         case 1:
@@ -17,10 +17,11 @@ let Select = props =>{
     }
 }
 
-let Form = props =>{
+const Form = props =>{
     return(
         <div className="container">
             <Select selected={props.nav}/>
+            
         </div>
     )
 }

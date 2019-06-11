@@ -4,7 +4,7 @@ import Home from './content/Home'
 import User from './content/User'
 import Error from './../components/Error'
 
-let Select = props => {
+const Select = props => {
     switch(props.selection){
         case 1:
             return <Form nav={props.nav} />
@@ -22,7 +22,7 @@ let Select = props => {
 
 }
 
-let Content = props => {
+const Content = props => {
     return (
         <Select selection={props.select} nav={props.nav} />
     )

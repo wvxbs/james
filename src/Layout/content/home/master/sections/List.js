@@ -1,6 +1,6 @@
 import React from 'react';
 
-let List = props => {
+const List = props => {
     return(
         <div>
             <a className="button is-white">{props.title}</a>

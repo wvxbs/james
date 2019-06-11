@@ -2,13 +2,14 @@ import React from 'react';
 import Layout from './Layout';
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
 
-let layoutSelector = (selec, navigation) => <Layout selected={selec} nav={navigation} />
+const layoutSelector = (selec, navigation) => <Layout selected={selec} nav={navigation} />
 
-let formSelector = form => {
+
+const formSelector = form => {
     return layoutSelector(1, form)
 }
 
-let App = props => {
+const App = props => {
     return (
       <BrowserRouter>
         <Switch>

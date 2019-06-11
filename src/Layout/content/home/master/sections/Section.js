@@ -1,7 +1,7 @@
 import React from 'react';
 import List from './List';
 
-let Section = props => {
+const Section = props => {
     const secItems = ['OOF', 'NOOF', 'WOFF','JOOJ']
 
     const listItems = secItems.map((item, i) => <List key={i} title={item} nav={i} />)
@@ -9,7 +9,7 @@ let Section = props => {
     return(
         <div>
             <h1 className="title">
-                {props.SecTitle}
+                {props.SecTitle} Videos
             </h1>
             <div>
                 {listItems}

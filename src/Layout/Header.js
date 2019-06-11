@@ -1,7 +1,7 @@
 import React from 'react'
 import Icon from './../ico.png'
 
-let Header = props => {
+const Header = props => {
     return(
         <div className="navbar is-white is-fixed-top">
             <div className="navbar-brand">

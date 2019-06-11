@@ -1,11 +1,27 @@
 import React from 'react'
 
-let LogIn = props => {
+const LogIn = props => {
     return(
-        <div className="field">
-            <label className="label">Name</label>
-            <div className="control">
-                <input className="input" type="text" placeholder="Text input" />
+        <div>
+            <div className="has-text-centered">
+                <h1 className="title">Bem Vindx ao James!</h1>  
+            </div>
+            <div className="form-container card">
+                <div className="field">
+                    <label className="label">Email</label>
+                    <div className="control">
+                        <input className="input is-rounded" type="text" placeholder="" />
+                    </div>
+                </div>
+                <div className="field">
+                    <label className="label">Password</label>
+                    <div className="control">
+                        <input className="input is-rounded" type="text" placeholder="" />
+                    </div>
+                </div>
+                <button className="button is-primary">
+                    Entrar
+                </button>
             </div>
         </div>
     )

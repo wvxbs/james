@@ -1,8 +1,13 @@
 import React from 'react';
 import Section from './sections/Section'
 
-let Sections = props => {
-    const secName = ['Gay Videos', 'Cat Videos', 'Porn Videos','Arab Videos','Indian Porn Videos']
+const Sections = props => {
+    const secName = [
+                        'Minecraft',
+                        'Israelenses Usando Drogas Desnudos',
+                        'Gay',
+                        'Paus Gordos'
+                    ]
 
     const ListItems = secName.map(item => {
         return <Section SecTitle={item} />
@@ -11,7 +16,7 @@ let Sections = props => {
 
     return(
         <div>
-            {ListItems}
+            {ListItems} 
         </div>
     )
 }

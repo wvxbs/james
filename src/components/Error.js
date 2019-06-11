@@ -1,6 +1,6 @@
 import React from 'react'
 
-let Error = props => {
+const Error = props => {
     return(
         <div className="hero">
             <div className="hero-body has-text-centered">
