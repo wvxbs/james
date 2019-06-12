@@ -1,6 +1,50 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 const LogIn = props => {
+    const [formData, setFormData] = useState('')
+
+    const submitData = () => {
+        dataHandler()
+        console.log(formData)
+    }
+
+    const dataHandler = (creds) => {
+        if(creds != 'error') {
+            setFormData(JSON.stringify(creds))
+        } else {
+            setFormData('error')
+        }
+
+    }
+
+    const retrieveFormData = (cred) => {
+        var key = Object.keys(cred)
+        var email = ''
+        var password = ''
+        var Array
+
+        if(key == "email") {
+            console.log(key)
+            email = key
+
+        } else if(key == "password") {
+            console.log(key)
+            password = key
+
+        } else {
+            console.log('error while authenticating')
+        }
+
+        Array = [{"email" : email, "password" : password}]
+
+        if(Array != null){
+            return Array
+        } else {
+            return 'error'
+        }
+
+    }
+
     return(
         <div>
             <div className="has-text-centered">
@@ -10,16 +54,16 @@ const LogIn = props => {
                 <div className="field">
                     <label className="label">Email</label>
                     <div className="control">
-                        <input className="input is-rounded" type="text" placeholder="" />
+                        <input className="input is-rounded" type="text" placeholder="" onChange={(email) => retrieveFormData({"email":email})} />
                     </div>
                 </div>
                 <div className="field">
                     <label className="label">Password</label>
                     <div className="control">
-                        <input className="input is-rounded" type="text" placeholder="" />
+                        <input className="input is-rounded" type="text" placeholder="" onChange={(password) => retrieveFormData({"password":password})} />
                     </div>
                 </div>
-                <button className="button is-primary">
+                <button className="button is-primary" onClick={() => submitData()}>
                     Entrar
                 </button>
             </div>
