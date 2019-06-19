@@ -1,74 +1,54 @@
 import React, {useState, useEffect} from 'react'
+import { Redirect } from 'react-router-dom'
 
-const LogIn = props => {
-    const [formData, setFormData] = useState('')
+const logIn = props => {
 
-    const submitData = () => {
-        dataHandler()
-        console.log(formData)
+    const [email, setEmail] = useState('none')
+    const [password, setPassword] = useState('none')
+    const [redirect, setRedirect] = useState(false)
+
+
+    const submitData = (email, password) => {
+        
+        //post
+        var request = JSON.stringify({
+            'email' : email,
+            'password' : password
+        })
+
+        console.log(request)
+        setRedirect(true)
     }
 
-    const dataHandler = (creds) => {
-        if(creds != 'error') {
-            setFormData(JSON.stringify(creds))
-        } else {
-            setFormData('error')
-        }
+    if(redirect){
+        return <Redirect to="/home" />
 
-    }
-
-    const retrieveFormData = (cred) => {
-        var key = Object.keys(cred)
-        var email = ''
-        var password = ''
-        var Array
-
-        if(key == "email") {
-            console.log(key)
-            email = key
-
-        } else if(key == "password") {
-            console.log(key)
-            password = key
-
-        } else {
-            console.log('error while authenticating')
-        }
-
-        Array = [{"email" : email, "password" : password}]
-
-        if(Array != null){
-            return Array
-        } else {
-            return 'error'
-        }
-
-    }
-
-    return(
-        <div>
-            <div className="has-text-centered">
-                <h1 className="title">Bem Vindx ao James!</h1>  
-            </div>
-            <div className="form-container card">
-                <div className="field">
-                    <label className="label">Email</label>
-                    <div className="control">
-                        <input className="input is-rounded" type="text" placeholder="" onChange={(email) => retrieveFormData({"email":email})} />
-                    </div>
+    } else {
+        return(
+            <div>
+                <div className="has-text-centered">
+                    <h1 className="title">Bem Vindx ao James!</h1>  
                 </div>
-                <div className="field">
-                    <label className="label">Password</label>
-                    <div className="control">
-                        <input className="input is-rounded" type="text" placeholder="" onChange={(password) => retrieveFormData({"password":password})} />
+                <div className="form-container card">
+                    <div className="field">
+                        <label className="label">Email</label>
+                        <div className="control">
+                            <input className="input is-rounded" type="text" placeholder="" onChange={email => setEmail(email.target.value) } />
+                        </div>
                     </div>
+                    <div className="field">
+                        <label className="label">Senha</label>
+                        <div className="control">
+                            <input className="input is-rounded" type="password" placeholder="" onChange={password => setPassword(password.target.value)} />
+                        </div>
+                    </div>
+                    <button className="button is-primary" onClick={() => submitData(email, password)}>
+                        Entrar
+                    </button>
                 </div>
-                <button className="button is-primary" onClick={() => submitData()}>
-                    Entrar
-                </button>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default LogIn
+export default logIn

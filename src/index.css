@@ -88,4 +88,5 @@ body {
     background-color: rgba(74, 38, 104, 0.9); }
 
 .footer {
-  height: 200px; }
+  height: 200px;
+  background-color: white; }
