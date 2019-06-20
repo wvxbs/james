@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link} from 'react-router-dom'
 
 const logIn = props => {
 
@@ -9,7 +9,7 @@ const logIn = props => {
 
 
     const submitData = (email, password) => {
-        
+
         //post
         var request = JSON.stringify({
             'email' : email,
@@ -46,6 +46,14 @@ const logIn = props => {
                         Entrar
                     </button>
                 </div>
+                <div className="has-text-centered">
+                        <p>ou</p>
+                        <Link to="signIn">
+                            <p>
+                                Cadastre-se
+                            </p>
+                        </Link>
+                    </div>
             </div>
         )
     }
