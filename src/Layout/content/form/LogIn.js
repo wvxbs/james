@@ -17,8 +17,8 @@ const submitData = (email, password) => {
 
 const logIn = props => {
 
-    const [email, setEmail] = useState('none')
-    const [password, setPassword] = useState('none')
+    const [email, setEmail] = useState(false)
+    const [password, setPassword] = useState(false)
     const [redirect, setRedirect] = useState(false)
 
     if(redirect){
@@ -28,7 +28,7 @@ const logIn = props => {
         return(
             <div>
                 <div className="has-text-centered">
-                    <h1 className="title">Bem Vindx ao James!</h1>  
+                    <h1 className="title" id="lTitle" >Bem Vindx ao James!</h1>  
                 </div>
                 <div className="form-container card">
                     <div className="field">

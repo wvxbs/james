@@ -12,6 +12,10 @@ body {
   height: 100%;
   user-select: none; }
 
+#lTitle {
+  margin-top: 20px;
+  margin-bottom: 30px; }
+
 .title {
   color: #4a2668;
   font-weight: bold; }
