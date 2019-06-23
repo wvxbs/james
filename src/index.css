@@ -13,8 +13,20 @@ body {
   user-select: none; }
 
 #lTitle {
-  margin-top: 20px;
-  margin-bottom: 30px; }
+  margin-top: 70px;
+  margin-bottom: 40px; }
+
+.form-container {
+  max-width: 280px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(74, 38, 104, 0.2); }
+  .form-container .input {
+    box-shadow: 0 0 0;
+    background: rgba(0, 0, 0, 0.02); }
+  .form-container .button {
+    background-color: rgba(74, 38, 104, 0.9); }
 
 .title {
   color: #4a2668;
@@ -78,18 +90,6 @@ body {
   z-index: 998 !important;
   transform: scale(1.1);
   box-shadow: 0 18px 20px rgba(74, 38, 104, 0.2); }
-
-.form-container {
-  max-width: 280px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 15px 30px rgba(74, 38, 104, 0.1); }
-  .form-container .input {
-    box-shadow: 0 0 0;
-    background: rgba(0, 0, 0, 0.02); }
-  .form-container .button {
-    background-color: rgba(74, 38, 104, 0.9); }
 
 .footer {
   height: 200px;

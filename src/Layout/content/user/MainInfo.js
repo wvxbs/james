@@ -20,12 +20,11 @@ const MainInfo = props => {
             setImg(simg)
             setName(sname)
             setId(sid)
-            alert('profile updated')
         }
 
         return (
-            <div>
-                <div>
+            <div className="card">
+                <div className="card-content">
                     <div className="field">
                         <label className="label"><p className="subtitle">{img}</p></label>
                         <div className="control">
@@ -37,9 +36,7 @@ const MainInfo = props => {
                             />
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div className="field">>
+                    <div className="field">
                         <label className="label"><h1 className="title">{name}</h1></label>
                         <div className="control">
                             <input 
@@ -51,7 +48,7 @@ const MainInfo = props => {
                         </div>
                     </div>
                     <div className="field">
-                        '<label className="label"><p className="subtitle">{id}</p></label>
+                        <label className="label"><p className="subtitle">{id}</p></label>
                         <div className="control">
                             <input 
                                 className="input is-rounded" 
@@ -61,14 +58,14 @@ const MainInfo = props => {
                             />
                         </div>
                     </div>
+                    <button 
+                    className="button is-link"
+                    onClick={() => updateProfileData(_img, _name, _id)}   
+                >Save</button>
                 </div>
                 <div>
                     <h1 className="subtitle">{description}</h1>
                 </div>
-                <button 
-                    className="button is-white"
-                    onClick={() => updateProfileData(_img, _name, _id)}   
-                >Save</button>
             </div>
         )
     }
@@ -116,16 +113,15 @@ const MainInfo = props => {
     }
 
     return (
-        <div className="container">
-            <div className="tile">
-                <div></div>
+        <div>
+            <div>
                 <ShowInfo />
             </div>
             <button 
                 className="button is-white"
                 onClick={() => toggleState(edit)}    
             >
-                <i className="fa fa-pencil" aria-hiddne="true"></i>
+                <i className="fas fa-pen" aria-hiddne="true"></i>
             </button>
         </div>
     )

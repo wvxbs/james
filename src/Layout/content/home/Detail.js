@@ -16,41 +16,6 @@ const videoContent = [
         'id' : '3',
         'title': 'Mainha Muito Safado',
         'description' : 'homem barbudo roubando nutella'
-    },
-    {
-        'id':'4',
-        'title':'Claudemir é pego bebendo coca cola',
-        'description':'vai tmnc ferreiraa'
-    },
-    {
-        'id':'5',
-        'title':'Top 5 acidentes de trabalho',
-        'description':'Confira os melhores e mais chocantes acidentes de trabalho'
-    },
-    {
-        id: 6,
-        title: 'Pau entra errado no Maia :o',
-        description: 'Maia acha que entra errado, mas quem põe erra mesmo.'
-    },
-    {
-        id: 7,
-        title: 'Ferreira fodido devagarinho por uma furry trap do sonic',
-        description: 'Ferreira fodido devagarinho por uma furry trap do sonic'
-    },
-    {
-        id:8,
-        title:'feerrerinha safadinho com ovo na boca',
-        description:'comi o cu de quem ta lendo kkkkkk'
-    },
-    {
-        id:9,
-        title:'enfiei um hidrante no cu, deu ruim? XD XD :O',
-        description:'sou corno  '
-    },
-    {
-        id:9,
-        title:'gostosa cabeluda rouba refri da maquina de cafe. entenda',
-        description:'no fim das contas nao era refri. GORE ALERT'
     }
 ]
 

@@ -1,14 +1,15 @@
 import React from 'react';
 import MainInfo from './user/MainInfo'
+import Recomended from './user/Recomended';
 
-let User = props => {
+const User = props => {
     return(
         <div className="columns">
-            <div className="column">
+            <div className="column is-one-third">
                 <MainInfo />
             </div>
             <div className="column">
-
+                <Recomended />
             </div>
         </div>
     )

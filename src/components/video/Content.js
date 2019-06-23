@@ -8,6 +8,10 @@ const Content = props => {
             </h1>
             <p>{props.desc}</p>
             <p>{props.id}</p>
+            <p>props.user</p>
+            <p>{props.views}</p>
+            <p>{props.likes}</p>
+            <p>{props.deslikes}</p>
         </div>
     )
 }

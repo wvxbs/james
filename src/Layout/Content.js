@@ -7,14 +7,13 @@ import Error from './../components/Error'
 const Select = props => {
     switch(props.selection){
         case 1:
-            return <Form nav={props.nav} />
+            return <Form />
         break
         case 2:
             return <Home />
         break
         case 3:
             return <User />
-        break
         break
         default:
             return <Error />
