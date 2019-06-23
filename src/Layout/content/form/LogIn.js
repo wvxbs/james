@@ -1,25 +1,36 @@
 import React, {useState, useEffect} from 'react'
 import { Redirect, Link} from 'react-router-dom'
 import { createStore }  from 'redux'
-
-const submitData = (email, password) => {
-
-    //post
-    var request = JSON.stringify({
-        'email' : email,
-        'password' : password
-    })
-
-    console.log(request)
-    
-    return true
-}
+import axios from 'axios'
 
 const logIn = props => {
 
-    const [email, setEmail] = useState(false)
-    const [password, setPassword] = useState(false)
+    const [userName, setUserName] = useState(null)
+    const [password, setPassword] = useState(null)
     const [redirect, setRedirect] = useState(false)
+    const [data, setData] = useState(null)
+
+    const submitData = (userName, password) => {
+
+        var request = JSON.stringify({
+            'username' : userName,
+            'password' : password
+        })
+    
+        axios({
+            method : 'POST',
+            url : 'http://james/api/user/login.php',
+            data : request
+        }).then(res => {
+            setData(res.data)
+            setRedirect(true)
+        }).catch(err =>{
+            setRedirect(false)
+        })
+    
+        console.log(redirect)
+        console.log(JSON.stringify(data))
+    }
 
     if(redirect){
         return <Redirect to="/home" />
@@ -32,9 +43,9 @@ const logIn = props => {
                 </div>
                 <div className="form-container card">
                     <div className="field">
-                        <label className="label">Email</label>
+                        <label className="label">User Name</label>
                         <div className="control">
-                            <input className="input is-rounded" type="text" placeholder="" onChange={email => setEmail(email.target.value) } />
+                            <input className="input is-rounded" type="text" placeholder="" onChange={userName => setUserName(userName.target.value) } />
                         </div>
                     </div>
                     <div className="field">
@@ -43,7 +54,7 @@ const logIn = props => {
                             <input className="input is-rounded" type="password" placeholder="" onChange={password => setPassword(password.target.value)} />
                         </div>
                     </div>
-                    <button className="button is-primary" onClick={() => setRedirect(submitData(email, password))}>
+                    <button className="button is-primary" onClick={() => submitData(userName, password)}>
                         Entrar
                     </button>
                 </div>
