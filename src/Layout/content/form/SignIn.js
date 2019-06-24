@@ -80,7 +80,7 @@ const logIn = props => {
                         </div>
                     </div>
                     <button 
-                        className="button is-primary" 
+                        className="button is-link" 
                         onClick={() => setRedirect(submitData(email, password))}
                     >
                         Entrar

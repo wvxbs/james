@@ -65,7 +65,7 @@ const logIn = props => {
                             <input className="input is-rounded" type="password" placeholder="" onChange={password => setPassword(password.target.value)} />
                         </div>
                     </div>
-                    <a href="#" className="button is-primary" onClick={() => submitData(userName, password)}>
+                    <a href="#" className="button is-link" onClick={() => submitData(userName, password)}>
                         Entrar
                     </a>
                 </div>
