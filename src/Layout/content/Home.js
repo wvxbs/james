@@ -2,7 +2,9 @@ import React from 'react'
 import Detail from './home/Detail'
 import Master from './home/Master'
 
+
 const Home = props => {
+
     return (
         <div className="columns">
             <div className="column">

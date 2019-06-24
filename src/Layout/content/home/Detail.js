@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Video from '../../../components/Video'
-import axios from 'axios'
+
 const videoContent = [
     {
         'id' : '1',
@@ -20,7 +20,6 @@ const videoContent = [
 ]
 
 const Detail = props => {
-
     const Videos = videoContent.map(video =>{
         return (
             <Video 

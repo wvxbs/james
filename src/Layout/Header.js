@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from './../ico.png'
+import {useCookies, Cookies} from 'react-cookie'
 
 const Header = props => {
+
+    const [cookies, setCookie, removeCookie] = useCookies()
+    const [name, setName] = useState(null)
+
+    useEffect(() => {
+        setName(cookies.usr.username)
+    })
+
     return(
         <div className="navbar is-white is-fixed-top">
             <div className="navbar-brand">
@@ -14,7 +23,7 @@ const Header = props => {
                     <div className="navbar-item">
                         <Link to="/user">
                             <button className="button is-white">
-                                Perfil
+                                {name}
                             </button>
                         </Link>
                     </div>

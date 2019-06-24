@@ -1,70 +1,135 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import {useCookies} from 'react-cookie'
 
 
 const MainInfo = props => {
-    const [name, setName] = useState(null)
+    const [userName, setUserName] = useState(null)
+    const [firstName, setFirstName] = useState(null)
+    const [lastName, setLastName] = useState(null)
+    const [fullName, setFullName] = useState(null)
+    const [email, setEmail]= useState(null)
     const [id, setId] = useState(null)
-    const [img, setImg] = useState(false)
-    const [description, setDescription] = useState(false)
-    const [edit, setEdit] = useState(false) 
+    const [img, setImg] = useState(null)
+    const [type, setType] = useState(null)
+    const [activate, setActivate] = useState(null)
+    const [edit, setEdit] = useState(null) 
+    const [cookies, useCookie, removeCookie] = useCookies()
+
+    var cUserName
+    var cFirstName
+    var cLastName
+    var cFullName
+    var cEmail
+    var cId = cookies.usr.id
+    var cProfilePhoto
+    var cType
+    var cActivate
 
     useEffect(() =>{   
-        //get
+
+        var url = "http://james/api/user/readOne.php?id=" + cId
+        axios.get(url).then(res => {
+            cUserName  = res.data.username
+            cFirstName = res.data.firstname
+            cLastName = res.data.lastname
+            cFullName = "" + res.data.firstname + " " + res.data.lastname + ""
+            cEmail = res.data.email
+            cId = res.data.id
+            cProfilePhoto = res.data.profilePhoto
+            cType = res.data.type
+            cActivate = res.data.activate
+            setUserName(cUserName)
+            setFirstName(cFirstName)
+            setLastName(cLastName)
+            setFullName(cFullName)
+            setEmail(cEmail)
+            setId(cId)
+            setImg(cProfilePhoto)
+            setType(cType)
+            setActivate(cActivate)
+        })
 
     })
 
     const Edit = props => {
-        var _img, _name, _id
+        var _img, _UserName, _id
 
-        const updateProfileData = (simg, sname, sid) => {
-            setImg(simg)
-            setName(sname)
-            setId(sid)
+        const updateProfileData = (_UserName,_FirstName, _LastName,_FullName, _Email, _Id, _ProfilePhoto, _Type, _Activate ) => {
+
+            setUserName(_UserName)
+            setFirstName(_FirstName)
+            setLastName(_LastName)
+            setFullName(_FullName)
+            setEmail(_Email)
+            setId(_Id)
+            setImg(_ProfilePhoto)
+            setType(_Type)
+            setActivate(_Activate)
+
+            var request = JSON.stringify({
+                "id": id,
+                "username": userName,
+                "firstname": firstName,
+                "lastname": lastName,
+                "email": email,
+                "profilePhoto": img,
+                "type": type,
+                "activate": activate
+            })
+
+            axios({
+                type : 'PUT',
+                url : 'http://james/api/user/update.php',
+                data : request
+            }).then(() => {
+                alert('updated')
+            })
         }
 
         return (
             <div className="card">
                 <div className="card-content">
                     <div className="field">
-                        <label className="label"><p className="subtitle">{img}</p></label>
+                        <label className="label"><p className="subtitle">{userName}</p></label>
                         <div className="control">
                             <input 
                                 className="input is-rounded" 
                                 type="text" 
-                                placeholder="" 
-                                onChange={img => _img = img.target.value} 
+                                placeholder={userName} 
+                                onChange={input => cUserName= input.target.value} 
                             />
                         </div>
                     </div>
                     <div className="field">
-                        <label className="label"><h1 className="title">{name}</h1></label>
+                        <label className="label"><h1 className="title">{firstName}</h1></label>
                         <div className="control">
                             <input 
                                 className="input is-rounded" 
                                 type="text" 
-                                placeholder="" 
-                                onChange={name => _name = name.target.value} 
+                                placeholder={firstName} 
+                                onChange={input => cFirstName = input.target.value} 
                             />
                         </div>
                     </div>
                     <div className="field">
-                        <label className="label"><p className="subtitle">{id}</p></label>
+                        <label className="label"><h1 className="title">{lastName}</h1></label>
                         <div className="control">
                             <input 
                                 className="input is-rounded" 
                                 type="text" 
-                                placeholder="" 
-                                onChange={id => _id = id.target.value} 
+                                placeholder={lastName} 
+                                onChange={input => cLastName = input.target.value} 
                             />
                         </div>
                     </div>
                     <button 
-                    className="button is-link"
-                    onClick={() => updateProfileData(_img, _name, _id)}   
+                    className="button is-white"
+                    onClick={() => updateProfileData(_img, _UserName, _id)}   
                 >Save</button>
                 </div>
                 <div>
-                    <h1 className="subtitle">{description}</h1>
+                    <h1 className="subtitle">{lastName}</h1>
                 </div>
             </div>
         )
@@ -74,14 +139,14 @@ const MainInfo = props => {
         return (
             <div className="tile">
                 <div>
-                    <p className="subtitle">{img}</p>
+                    <img src={img} />
                 </div>
                 <div>
-                    <h1 className="title">{name}</h1>
-                    <p className="subtitle">{id}</p>
+                    <h1 className="title">{userName}</h1>
+                    <p className="subtitle">{fullName }</p>
                 </div>
                 <div>
-                    <h1 className="subtitle">{description}</h1>
+                    <h1 className="subtitle">{lastName}</h1>
                 </div>
             </div>
         )

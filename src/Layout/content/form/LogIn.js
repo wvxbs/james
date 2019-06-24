@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Redirect, Link} from 'react-router-dom'
-import { createStore }  from 'redux'
 import axios from 'axios'
+import {useCookies} from 'react-cookie'
 
 const logIn = props => {
 
@@ -9,6 +9,15 @@ const logIn = props => {
     const [password, setPassword] = useState(null)
     const [redirect, setRedirect] = useState(false)
     const [data, setData] = useState(null)
+    const [cookies, setCookie, removeCookie] = useCookies(null)
+
+    useEffect(() =>{
+        if(cookies.usr == null) {
+            setRedirect(false)
+        } else {
+            setRedirect(true)
+        }
+    })
 
     const submitData = (userName, password) => {
 
@@ -22,7 +31,9 @@ const logIn = props => {
             url : 'http://james/api/user/login.php',
             data : request
         }).then(res => {
-            setData(res.data)
+            var response = JSON.stringify(res.data)
+            setData(response)
+            setCookie('usr', response)
             setRedirect(true)
         }).catch(err =>{
             setRedirect(false)
@@ -54,9 +65,9 @@ const logIn = props => {
                             <input className="input is-rounded" type="password" placeholder="" onChange={password => setPassword(password.target.value)} />
                         </div>
                     </div>
-                    <button className="button is-primary" onClick={() => submitData(userName, password)}>
+                    <a href="#" className="button is-primary" onClick={() => submitData(userName, password)}>
                         Entrar
-                    </button>
+                    </a>
                 </div>
                 <div className="has-text-centered">
                         <p>ou</p>
