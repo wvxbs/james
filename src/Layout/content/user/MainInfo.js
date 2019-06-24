@@ -21,13 +21,18 @@ const MainInfo = props => {
     var cLastName
     var cFullName
     var cEmail
-    var cId = cookies.usr.id
+    var cId
     var cProfilePhoto
     var cType
     var cActivate
 
     useEffect(() =>{   
-
+        if (cookies.usr == null) {
+            cId = 0
+        } else {
+            cId = cookies.usr.id
+        }
+        
         var url = "http://james/api/user/readOne.php?id=" + cId
         axios.get(url).then(res => {
             cUserName  = res.data.username
@@ -187,6 +192,14 @@ const MainInfo = props => {
                 onClick={() => toggleState(edit)}    
             >
                 <i className="fas fa-pen" aria-hiddne="true"></i>
+            </button>
+            <button 
+                className="button is-danger"
+                onClick={() => {
+                    removeCookie('usr')
+                }}
+            >
+                Exit
             </button>
         </div>
     )

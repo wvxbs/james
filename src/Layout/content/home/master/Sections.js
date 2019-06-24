@@ -4,9 +4,9 @@ import Section from './sections/Section'
 const Sections = props => {
     const secName = [
                         'Minecraft',
-                        'Israelenses Usando Drogas Desnudos',
-                        'Gay',
-                        'Paus Gordos'
+                        'Israelenses ',
+                        'Venom Extreme',
+                        'Bolos'
                     ]
 
     const ListItems = secName.map(item => {

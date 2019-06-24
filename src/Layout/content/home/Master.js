@@ -4,10 +4,14 @@ import {useCookies} from 'react-cookie'
 
 const Master = props => {
     const [name, setName] = useState(null)
-    const [cookies, setCookie, removeCookie] = useCookies()
+    const [cookies, setCookie, removeCookie] = useCookies(null)
 
     useEffect(()=> {
-        setName(cookies.usr.firstname)
+        if(cookies.usr == null ) {
+            setName('')
+        } else {
+            setName(cookies.usr.firstname)
+        }
     })
 
     return (

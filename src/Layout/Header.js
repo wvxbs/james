@@ -5,11 +5,15 @@ import {useCookies, Cookies} from 'react-cookie'
 
 const Header = props => {
 
-    const [cookies, setCookie, removeCookie] = useCookies()
+    const [cookies, setCookie, removeCookie] = useCookies(null)
     const [name, setName] = useState(null)
 
     useEffect(() => {
+        if(cookies.usr == null ) {
+            setName('')
+        } else {
         setName(cookies.usr.username)
+        }
     })
 
     return(
