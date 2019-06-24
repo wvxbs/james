@@ -24,7 +24,7 @@ body {
   margin: auto;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 15px 30px rgba(74, 38, 104, 0.2); }
+  box-shadow: 0 15px 30px rgba(74, 38, 104, 0); }
   .form-container .input {
     box-shadow: 0 0 0;
     background: rgba(0, 0, 0, 0.02); }
