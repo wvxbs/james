@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useDebugValue } from 'react'
 import Video from '../../../components/Video'
+import axios from 'axios'
 
 const videoContent = [
     {
@@ -20,6 +21,22 @@ const videoContent = [
 ]
 
 const Detail = props => {
+    const [videos, setVideos] = useState(null)
+
+    const oVideos = () => {
+        fetch('http://james/api/video/read.php').then(res => res.json()).then(
+            (result) => {
+            setVideos(result.items)
+            },
+            (error) => {
+                console.log(error)
+            })
+    }
+
+    useEffect(() => {
+        oVideos()
+    })
+
     const Videos = videoContent.map(video =>{
         return (
             <Video 

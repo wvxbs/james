@@ -99,5 +99,8 @@ body {
 .upload-container {
   max-width: 300px; }
 
+.videosub {
+  color: #4a2668; }
+
 #wrapper {
   align-content: left; }

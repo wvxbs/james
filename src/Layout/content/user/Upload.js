@@ -61,7 +61,7 @@ const Upload = props => {
                         <button className="button is-white" onClick={() => {
                             setTitle(title)
                         }}>
-                            Update
+                            Preview
                         </button>
                     </div>
                 </div>

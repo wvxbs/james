@@ -5,18 +5,6 @@ import {useCookies} from 'react-cookie'
 
 
 const MainInfo = props => {
-
-    /*
-    const [userName, setUserName] = useState(null)
-    const [firstName, setFirstName] = useState(null)
-    const [lastName, setLastName] = useState(null)
-    const [fullName, setFullName] = useState(null)
-    const [email, setEmail]= useState(null)
-    const [id, setId] = useState(null)
-    const [img, setImg] = useState(null)
-    const [type, setType] = useState(null)
-    const [activate, setActivate] = useState(null) */
-
     const [fullName, setFullName] = useState(null)
     const [edit, setEdit] = useState(null)
     const [cookies, useCookie, removeCookie] = useCookies({})

@@ -9,33 +9,29 @@ const Content = props => {
             <div className="level">
                 <div className="level-item has-text-centered">
                     <div>
-                    <p className="heading has-text-weight-bold"><span className="fas fa-thumbs-up"></span></p>
-                    <p className="subtitle">3,456</p>
+                    <p className="videosub heading has-text-weight-bold"><span className="fas fa-thumbs-up"></span></p>
+                    <p className="subtitle">{props.likes}</p>
                     </div>
                 </div>
                 <div className="level-item has-text-centered">
                     <div>
-                    <p className="heading has-text-weight-bold"><span className="fas fa-thumbs-down"></span></p>
-                    <p className="subtitle">123</p>
+                    <p className="videosub heading has-text-weight-bold"><span className="fas fa-thumbs-down"></span></p>
+                    <p className="subtitle">{props.deslikes}</p>
                     </div>
                 </div>
                 <div className="level-item has-text-centered">
                     <div>
-                    <p className="heading has-text-weight-bold"><span className="fas fa-eye"></span></p>
-                    <p className="subtitle">456K</p>
+                    <p className="videosub heading has-text-weight-bold"><span className="fas fa-eye"></span></p>
+                    <p className="subtitle">{props.views}</p>
                     </div>
                 </div>
                 <div className="level-item has-text-centered">
                     <div>
-                    <p className="heading has-text-weight-bold"><span className="fas fa-user"></span></p>
-                    <p className="subtitle">789</p>
+                    <p className="videosub heading has-text-weight-bold"><span className="fas fa-user"></span></p>
+                    <p className="subtitle">{props.user}</p>
                     </div>
                 </div>
             </div>
-            <p>{props.user}</p>
-            <p>{props.views}</p>
-            <p>{props.likes}</p>
-            <p>{props.deslikes}</p>
         </div>
     )
 }
