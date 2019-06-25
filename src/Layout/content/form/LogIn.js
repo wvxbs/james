@@ -50,7 +50,7 @@ const logIn = props => {
         return(
             <div>
                 <div className="has-text-centered">
-                    <h1 className="title" id="lTitle" >Bem Vindx ao James!</h1>  
+                    <h1 className="title" id="lTitle" >Bem Vindo ao James!</h1>  
                 </div>
                 <div className="form-container card">
                     <div className="field">
@@ -65,9 +65,9 @@ const logIn = props => {
                             <input className="input is-rounded" type="password" placeholder="" onChange={password => setPassword(password.target.value)} />
                         </div>
                     </div>
-                    <a href="#" className="button is-link" onClick={() => submitData(userName, password)}>
+                    <button className="button is-link" onClick={() => submitData(userName, password)}>
                         Entrar
-                    </a>
+                    </button>
                 </div>
                 <div className="has-text-centered">
                         <p>ou</p>

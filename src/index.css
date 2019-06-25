@@ -95,3 +95,9 @@ body {
 .footer {
   height: 200px;
   background-color: white; }
+
+.upload-container {
+  max-width: 300px; }
+
+#wrapper {
+  align-content: left; }
