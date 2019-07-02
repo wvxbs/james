@@ -7,27 +7,31 @@ import {useCookies} from 'react-cookie'
 const MainInfo = props => {
     const [fullName, setFullName] = useState(null)
     const [edit, setEdit] = useState(null)
-    const [cookies, useCookie, removeCookie] = useCookies({})
-    const [user, setUser] = useState(cookies.usr)
+    const [cookies, useCookie, removeCookie] = useCookies(null)
+    const [user, setUser] = useState({})
     const [userName, setUserName] = useState(null)
     const [firstName, setFirstName] = useState(null)
     const [lastName, setLastName] = useState(null)
     const [profilePhoto, setProfilePhoto] = useState(null)
     const [request, setRequest] = useState()
-    const [id, setId] = useState(null)
+    const [form, setForm] = useState(null)
+    const [id, setId] = useState(cookies.usr.id)
 
     useEffect(() =>{   
         if (cookies.usr == null) {
             setId(0)
         } else {
             setId(cookies.usr.id)
-            var url = "http://james/api/user/readOne.php?id=" + id
-            /*axios.get(url).then(res => {
+            var url = 'http://james/api/user/readOne.php?id=' + id + ''
+            axios({
+                method : 'GET',
+                url : url
+            }).then(res => {
                 setUser(res.data)
                 var fname = "" + user.firstname + " " + user.lastname + ""
                 setFullName(fname)
                 console.log(user) 
-            })  */
+            })  
         }
     })
 
@@ -35,12 +39,13 @@ const MainInfo = props => {
 
         const submitFile = (event) => {
             setProfilePhoto(event.target.files[0])
-
-        }
+            const fd = new FormData();
+            fd.append('id', id)
+            fd.append('profilePhoto', profilePhoto)
+            setForm(fd)
+        } 
 
         const updateProfileData = (UserName, FirstName ,LastName) => {
-            const fd = new FormData();
-            fd.append('pic', profilePhoto)
             var rUserName = user.username
             var rFirstName = user.firstname
             var rLastName = user.lastname
@@ -51,16 +56,16 @@ const MainInfo = props => {
                 'firstname': FirstName || rFirstName,
                 'lastname': LastName || rLastName,
                 'email': user.email,
-                'profilePhoto': fd,
+                'profilePhoto': '',
                 'type': user.type,
                 'activate': user.activate
             })
 
-            var request = JSON.stringify(user)
+            
             axios({
                 type : 'PUT',
                 url : 'http://james/api/user/update.php',
-                body : request
+                data : form
             }).then((res) => {
                 console.log(res.statusText)
                 useCookie('usr', JSON.stringify(user))
@@ -79,11 +84,9 @@ const MainInfo = props => {
                         <label className="file-label">
                             <input 
                                 className="file-input" 
-                                type="file" 
+                                type="file"            
                                 name="resume" 
-                                onChange={
-                                    submitFile
-                                }
+                                onChange={input => submitFile(input)}
                             />
                             <span className="file-cta">
                             <span className="file-icon">
@@ -92,6 +95,9 @@ const MainInfo = props => {
                             <span className="file-label">
                                 Choose a file…
                             </span>
+                            </span>
+                            <span className="file-name">
+                                <img src={profilePhoto} />
                             </span>
                         </label>
                     </div>
@@ -139,17 +145,20 @@ const MainInfo = props => {
     }
     
     const Show = props => {
+        var pic = "http://james/" + user.profilePhoto
         return (
-            <div className="tile">
-                <div>
-                    <img src={user.profilePhoto} />
+            <div className="columns">
+                <div className="column">
+                    <img src={pic} />
                 </div>
-                <div>
+                <br></br>
+                <div className="column">
                     <h1 className="title">{user.username}</h1>
                     <p className="subtitle">{fullName}</p>
+                    <h1 className="subtitle">{user.lastname}</h1>
                 </div>
                 <div>
-                    <h1 className="subtitle">{user.lastname}</h1>
+                    
                 </div>
             </div>
         )

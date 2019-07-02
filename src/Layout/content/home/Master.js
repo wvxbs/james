@@ -20,7 +20,7 @@ const Master = props => {
                 <div>
                     <h1 className="subtitle">Bem Vindo {name}</h1>
                 </div>
-                <Sections />
+                <Sections  />
             </div>
         </div>
     )

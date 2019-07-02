@@ -1,56 +1,41 @@
 import React, { useState, useEffect, useDebugValue } from 'react'
 import Video from '../../../components/Video'
+import { useCookies } from 'react-cookie'
 import axios from 'axios'
 
-const videoContent = [
-    {
-        'id' : '1',
-        'title': 'Maia',
-        'description' : 'homem barbudo roubando idosa'
-    },
-    {
-        'id' : '2',
-        'title': 'Moio',
-        'description' : 'homem barbudão roubando idosa'
-    },
-    {
-        'id' : '3',
-        'title': 'Mainha Muito Safado',
-        'description' : 'homem barbudo roubando nutella'
-    }
-]
-
 const Detail = props => {
-    const [videos, setVideos] = useState(null)
-
-    const oVideos = () => {
-        fetch('http://james/api/video/read.php').then(res => res.json()).then(
-            (result) => {
-            setVideos(result.items)
-            },
-            (error) => {
-                console.log(error)
-            })
-    }
+    const [videos, setVideos] = useState([])
 
     useEffect(() => {
-        oVideos()
+        axios({
+            url : 'http://james/api/video/read.php',
+            method : 'GET'
+        }).then(res => {
+            setVideos(res.data)
+        })
     })
 
-    const Videos = videoContent.map(video =>{
-        return (
-            <Video 
-                key={video.id} 
-                id={video.id} 
-                title={video.title} 
-                desc={video.description}
-            />
-        )
-    })
+    const Videos = () => {
+        videos.map(video =>{
+            return (
+                <Video 
+                    key={video.id} 
+                    id={video.id} 
+                    title={video.title} 
+                    thumb={video.thumbnailPhoto}
+                    video={video.path}
+                    likes={video.likes}
+                    dislikes={video.dislikes}
+                    views={video.views}
+                    user={video.user.username}
+                />
+            )
+        })
+    }
 
     return (
         <div>
-            <h1 className="title">Destaques:</h1>
+            <h1 className="title">Videos:</h1>
             <div className="video-container-wrapper">
                 <div className="video-container">
                     {Videos}

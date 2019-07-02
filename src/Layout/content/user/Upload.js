@@ -1,18 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import Video from '../../../components/Video';
+import axios from 'axios'
 
 const Upload = props => {
     //useEffect()
     const [title, setTitle ] = useState(null)
     const [file, setFile ] = useState(null)
     const [thumb, setThumb ] = useState(null)
+    const [form, setForm] = useState(null)
 
-    const submitData = (aa,aaa) => {
-
-    } 
+    const submitVideo = (video, thumb) => {
+        const tb = new FormData();
+        const vd = new FormData();
+        tb.append('thumbnailPhoto', thumb)
+        vd.append('videoData', video)
+        axios({
+            method : 'POST',
+            url : 'http://james/api/video/saveVideoThumbnail.php',
+            data : tb
+        }).then(res =>{
+            console.log('thumb')
+        }).catch(err => {
+            console.log('error')
+        })
+        axios({
+            method : 'POST',
+            url : 'http://james/api/video/saveVideoData.php',
+            data : vd
+        }).then(res =>{
+            console.log('thumb')
+        }).catch(err => {
+            console.log('error')
+        })
+    }
 
     const Create = props => {
         var title
+        var thumb
+        var video
 
         return(
             <div>
@@ -28,7 +53,7 @@ const Upload = props => {
                             <label className="label">Thumbnail</label>
                             <div className="file">
                                 <label className="file-label">
-                                    <input className="file-input" type="file" name="resume" />
+                                    <input className="file-input" type="file" name="resume" onChange={input => thumb = input.target.files[0]}/>
                                     <span className="file-cta">
                                     <span className="file-icon">
                                         <i className="fas fa-upload"></i>
@@ -45,7 +70,7 @@ const Upload = props => {
                             <div className="control">
                                 <div className="file">
                                     <label className="file-label">
-                                        <input className="file-input" type="file" name="resume" />
+                                        <input className="file-input" type="file" name="resume" onChange={input => video = input.target.files[0]}/>
                                         <span className="file-cta">
                                         <span className="file-icon">
                                             <i className="fas fa-upload"></i>
@@ -60,12 +85,42 @@ const Upload = props => {
                         </div>
                         <button className="button is-white" onClick={() => {
                             setTitle(title)
+                            submitVideo(thumb,video)
                         }}>
                             Preview
                         </button>
                     </div>
                 </div>
             </div>
+        )
+    }
+
+    const _Video = () => {
+        var video = {
+            key : '', 
+            id : '',
+            title : '' ,
+            thumb : '',
+            video : '',
+            likes : '',
+            dislikes : '',
+            views : '',
+            user : ''
+            
+        }
+
+        return (
+            <Video 
+                key={video.id} 
+                id={video.id} 
+                title={video.title} 
+                thumb={video.thumbnailPhoto}
+                video={video.path}
+                likes={video.likes}
+                dislikes={video.dislikes}
+                views={video.views}
+                user={video.user.username}
+            />
         )
     }
 
@@ -76,12 +131,13 @@ const Upload = props => {
             </div>
             <div className="columns">
                 <div className="column">
-                    <Video title={title} />
+                    {_Video}
                 </div>
                 <div className="column is-three-quarters">
                     <div id="wrapper">
                     <Create />
                     </div>
+                    <button className="button is-link">Criar</button>
                 </div>
             </div>
         </div>

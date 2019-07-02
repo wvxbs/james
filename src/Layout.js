@@ -26,7 +26,7 @@ const Layout = props =>{
                 <Header />
                 <div className="blank"></div>
                 <div className="container is-fluid">
-                <Content select={props.selected} nav={props.nav} />
+                    <Content select={props.selected} nav={props.nav} />
                 </div>
                 <Footer />
             </div>
