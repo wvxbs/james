@@ -8,7 +8,7 @@ const logIn = props => {
 
     const [userName, setUserName] = useState(null)
     const [password, setPassword] = useState(null)
-    const [redirect, setRedirect] = useState(false)
+    const [redirect, setRedirect] = useState(true)
     const [data, setData] = useState(null)
     const [response, setResponse] = useState(null)
     const [cookies, setCookie, removeCookie] = useCookies(null)
@@ -21,10 +21,10 @@ const logIn = props => {
         }
     })
 
-    const submitData = (userName, password) => {
+    const submitData = (_userName, _password) => {
         var request = JSON.stringify({
-            'username' : userName,
-            'password' : password
+            'username' : _userName,
+            'password' : _password
         })
 
         setResponse(Data(1, request))
@@ -72,7 +72,7 @@ const logIn = props => {
                             </p>
                         </Link>
                     </div>
-            </div>
+                </div>
         )
     }
 }

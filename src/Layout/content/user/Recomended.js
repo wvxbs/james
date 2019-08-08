@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Video from './../../../components/Video'
+import Videos from './../../../components/Videos'
 
 
 const Recomended = props => {
@@ -20,17 +20,6 @@ const Recomended = props => {
             'description' : 'homem barbudo roubando nutella'
         }
     ]
-    
-    const Videos = videoContent.map(video =>{
-            return (
-                <Video 
-                    key={video.id} 
-                    id={video.id} 
-                    title={video.title} 
-                    desc={video.description}
-                />
-            )
-        })
 
     return (
         <div>

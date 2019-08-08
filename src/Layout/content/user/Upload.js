@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Video from '../../../components/Video';
+import Video from '../../../components/videos/Video';
 import axios from 'axios'
 
 const Upload = props => {

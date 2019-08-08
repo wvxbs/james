@@ -75,7 +75,7 @@ const MainInfo = props => {
 
         var cUserName
         var cFirstName
-        var cLastName
+        var cLastName   
 
         return (
             <div className="card">
