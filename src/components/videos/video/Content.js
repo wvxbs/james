@@ -6,6 +6,9 @@ const Content = props => {
             <h1 className="title">
                 {props.title}
             </h1>
+            <h1 className="subtitle">
+                {props.desc}
+            </h1>
             <div className="level">
                 <div className="level-item has-text-centered">
                     <div>

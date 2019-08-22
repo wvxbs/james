@@ -4,7 +4,8 @@ import axios from 'axios'
 
 const Upload = props => {
     //useEffect()
-    const [title, setTitle ] = useState(null)
+    const [title, setTitle ] = useState('')
+    const [desc, setDesc] = useState('')
     const [file, setFile ] = useState(null)
     const [thumb, setThumb ] = useState(null)
     const [form, setForm] = useState(null)
@@ -34,26 +35,70 @@ const Upload = props => {
         })
     }
 
+    const fileState = (file, index) => {
+        switch(index){
+            case 1 :
+                    setThumb(file)
+            break
+            case 2 :
+                
+            break
+            case 3 :
+                setFile()
+            break
+            default:
+                console.log('error')
+            break
+        }
+    }
+
     const Create = props => {
-        var title
-        var thumb
-        var video
+        var title, desc, thumbnail, file
 
         return(
             <div>
                 <div className="upload-container">
                     <div className="card-content">
                         <div className="field">
-                            <label className="label">Title</label>
+                            <label className="label">Título</label>
                             <div className="control">
-                                <input className="input is-rounded" type="text" placeholder="" onChange={input =>  title = input.target.value} />
+                                <input 
+                                    className="input is-rounded" 
+                                    type="text" 
+                                    placeholder="" 
+                                    onChange={input =>{
+                                        title = input.target.value
+                                    }}
+                                    value={title}
+                                />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <label className="label">Descrição</label>
+                            <div className="control">
+                                <input 
+                                    className="input is-rounded" 
+                                    type="text" 
+                                    placeholder="" 
+                                    onChange={input =>{
+                                        desc = input.target.value
+                                    }}
+                                    value={desc}
+                                />
                             </div>
                         </div>
                         <div className="field">
                             <label className="label">Thumbnail</label>
                             <div className="file">
                                 <label className="file-label">
-                                    <input className="file-input" type="file" name="resume" onChange={input => thumb = input.target.files[0]}/>
+                                    <input 
+                                        className="file-input" 
+                                        type="file" 
+                                        name="resume" 
+                                        onChange={input =>  {
+                                                thumbnail = input.target.files[0]
+                                            }}
+                                        />
                                     <span className="file-cta">
                                     <span className="file-icon">
                                         <i className="fas fa-upload"></i>
@@ -70,7 +115,15 @@ const Upload = props => {
                             <div className="control">
                                 <div className="file">
                                     <label className="file-label">
-                                        <input className="file-input" type="file" name="resume" onChange={input => video = input.target.files[0]}/>
+                                        <input 
+                                            className="file-input" 
+                                            type="file" 
+                                            name="resume" 
+                                            onChange={input => {
+                                                file = input.target.files[0]
+                                            }
+                                        }
+                                        />
                                         <span className="file-cta">
                                         <span className="file-icon">
                                             <i className="fas fa-upload"></i>
@@ -84,9 +137,14 @@ const Upload = props => {
                             </div>
                         </div>
                         <button className="button is-white" onClick={() => {
-                            setTitle(title)
-                            submitVideo(thumb,video)
-                        }}>
+                            if(title != '' && title != undefined ){
+                                setTitle(title) 
+                            }
+                            if(desc != '' && desc != undefined ) {
+                                setDesc(desc)
+                            }   
+                        }}
+                        >
                             Preview
                         </button>
                     </div>
@@ -95,31 +153,20 @@ const Upload = props => {
         )
     }
 
-    const _Video = () => {
-        var video = {
-            key : '', 
-            id : '',
-            title : '' ,
-            thumb : '',
-            video : '',
-            likes : '',
-            dislikes : '',
-            views : '',
-            user : ''
-            
-        }
-
+    const ShowVideo = props => {
+        /*                id={id} 
+                title={title} 
+                thumb={thumbnailPhoto}
+                video={path}
+                likes={likes}
+                dislikes={dislikes}
+                views={views}
+                user={user.username} */
         return (
             <Video 
-                key={video.id} 
-                id={video.id} 
-                title={video.title} 
-                thumb={video.thumbnailPhoto}
-                video={video.path}
-                likes={video.likes}
-                dislikes={video.dislikes}
-                views={video.views}
-                user={video.user.username}
+                key={title} 
+                title={title}
+                desc={desc}
             />
         )
     }
@@ -131,7 +178,7 @@ const Upload = props => {
             </div>
             <div className="columns">
                 <div className="column">
-                    {_Video}
+                    <ShowVideo />
                 </div>
                 <div className="column is-three-quarters">
                     <div id="wrapper">

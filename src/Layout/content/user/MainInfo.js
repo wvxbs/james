@@ -15,7 +15,7 @@ const MainInfo = props => {
     const [profilePhoto, setProfilePhoto] = useState(null)
     const [request, setRequest] = useState()
     const [form, setForm] = useState(null)
-    const [id, setId] = useState(cookies.usr.id)
+    const [id, setId] = useState(null)
 
     useEffect(() =>{   
         if (cookies.usr == null) {
@@ -226,7 +226,7 @@ const MainInfo = props => {
                         .catch(console.error)
                 }}
             >
-                Exit
+                Sair
             </button>
         </div>
     )}

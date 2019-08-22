@@ -11,8 +11,8 @@ const Layout = props =>{
     const [cookies, setCookie, removeCookie] = useCookies(null)
 
     useEffect(() => {
-        if(cookies.usr == null) {
-            setRedirect(true)
+        if(cookies.usr == undefined) {
+            setRedirect(false)
         } else {
             setRedirect(false)
         }

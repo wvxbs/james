@@ -20,6 +20,14 @@ const Videos = props => {
         }
     })
 
+    const Error = props => {
+        return(
+            <div style={{margin : 'auto', justifyContent : 'center'}}>
+                <h1 className="subtitle">Não Há videos para mostrar :(</h1>
+            </div>
+        )
+    }
+
     const Builder = videos.map(video =>{
         return (
             <Video 
@@ -36,11 +44,16 @@ const Videos = props => {
         )
     })
 
-    return(
-        <div>
-            {Builder}
-        </div>
-    )
+    if(props.response !== 'error'){
+        return(
+            <div>
+                {Builder}
+            </div>
+        )
+    }
+    else {
+        return <Error />
+    }
 }
 
 export default Videos

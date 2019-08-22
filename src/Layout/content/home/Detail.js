@@ -20,7 +20,7 @@ const Detail = props => {
             <h1 className="title">Videos:</h1>
             <div className="video-container-wrapper">
                 <div className="video-container">
-                    <Videos responde="error" />
+                    <Videos response="error" />
                 </div>
             </div>
         </div>
