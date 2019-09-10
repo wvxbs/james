@@ -45,10 +45,11 @@ const MainInfo = props => {
             setForm(fd)
         } 
 
-        const updateProfileData = (UserName, FirstName ,LastName) => {
+        const updateProfileData = (Photo, UserName, FirstName ,LastName) => {
             var rUserName = user.username
             var rFirstName = user.firstname
             var rLastName = user.lastname
+            var rPhoto = user.profilePhoto
 
             setUser({
                 'id' : user.id,
@@ -56,7 +57,7 @@ const MainInfo = props => {
                 'firstname': FirstName || rFirstName,
                 'lastname': LastName || rLastName,
                 'email': user.email,
-                'profilePhoto': '',
+                'profilePhoto': Photo || rPhoto,
                 'type': user.type,
                 'activate': user.activate
             })
@@ -76,6 +77,7 @@ const MainInfo = props => {
         var cUserName
         var cFirstName
         var cLastName   
+        var cPhoto
 
         return (
             <div className="card">
@@ -86,30 +88,20 @@ const MainInfo = props => {
                                 className="file-input" 
                                 type="file"            
                                 name="resume" 
-                                onChange={input => submitFile(input)}
+                                onChange={input => {
+                                    var cPhoto = input.target.files[0]
+                                    setProfilePhoto(cPhoto)
+                                }}
                             />
                             <span className="file-cta">
                             <span className="file-icon">
                                 <i className="fas fa-upload"></i>
                             </span>
-                            <span className="file-label">
-                                Choose a file…
-                            </span>
-                            </span>
-                            <span className="file-name">
-                                <img src={profilePhoto} />
                             </span>
                         </label>
                     </div>
                     <div className="field">
-                        <label className="label"><p className="subtitle">{user.username}</p></label>
-                        <div className="control">
-                            <input 
-                                className="input is-rounded" 
-                                type="text" 
-                                onChange={input => cUserName = input.target.value} 
-                            />
-                        </div>
+                        <img src={setProfilePhoto} />
                     </div>
                     <div className="field">
                         <label className="label"><h1 className="title">{user.firstname}</h1></label>
@@ -134,7 +126,7 @@ const MainInfo = props => {
                     </div>
                     <button 
                     className="button is-white"
-                    onClick={() => updateProfileData(cUserName, cFirstName, cLastName)}   
+                    onClick={() => updateProfileData(cPhoto, cUserName, cFirstName, cLastName)}   
                 >Save</button>
                 </div>
                 <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import MainInfo from './user/MainInfo'
-import Recomended from './user/Recomended';
+import Uploads from './user/Uploads';
 import Upload from './user/Upload'
 
 const User = props => {
@@ -11,7 +11,7 @@ const User = props => {
             </div>
             <div className="column">
                 <Upload />
-                <Recomended />
+                <Uploads usr="1" />
             </div>
         </div>
     )

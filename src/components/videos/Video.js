@@ -5,7 +5,7 @@ import Content from './video/Content';
 const Video = props => {
     return (
             <div className="card video">
-                <Img src={props.video} />
+                <Img src={props.thumb} />
                 <Content id={props.id} title={props.title} desc={props.desc}/>
             </div>
     )

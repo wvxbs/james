@@ -7,7 +7,7 @@ const Upload = props => {
     const [title, setTitle ] = useState('')
     const [desc, setDesc] = useState('')
     const [file, setFile ] = useState(null)
-    const [thumb, setThumb ] = useState(null)
+    const [thumb, setThumb ] = useState("https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-021aa40c.jpg")
     const [form, setForm] = useState(null)
 
     const submitVideo = (video, thumb) => {
@@ -104,14 +104,14 @@ const Upload = props => {
                                         <i className="fas fa-upload"></i>
                                     </span>
                                     <span className="file-label">
-                                        Choose a file…
+                                        Escolha uma imagem
                                     </span>
                                     </span>
                                 </label>
                             </div>
                         </div>
                         <div className="field">
-                            <label className="label">Video File</label>
+                            <label className="label">Arquivo de Vídeo</label>
                             <div className="control">
                                 <div className="file">
                                     <label className="file-label">
@@ -129,7 +129,7 @@ const Upload = props => {
                                             <i className="fas fa-upload"></i>
                                         </span>
                                         <span className="file-label">
-                                            Choose a file…
+                                            Escolha um video
                                         </span>
                                         </span>
                                     </label>
@@ -142,6 +142,9 @@ const Upload = props => {
                             }
                             if(desc != '' && desc != undefined ) {
                                 setDesc(desc)
+                            }   
+                            if(thumbnail != '' && thumbnail != undefined ) {
+                                setThumb(URL.createObjectURL(thumbnail))
                             }   
                         }}
                         >
@@ -165,6 +168,7 @@ const Upload = props => {
         return (
             <Video 
                 key={title} 
+                thumb={thumb}
                 title={title}
                 desc={desc}
             />
