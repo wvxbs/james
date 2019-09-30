@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+    import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from './../ico.png'
 import {useCookies, Cookies} from 'react-cookie'
@@ -17,7 +17,7 @@ const Header = props => {
     })
 
     return(
-        <div className="navbar is-white is-fixed-top">
+        <div className="navbar is-black is-fixed-top">
             <div className="navbar-brand">
                 <span className="navbar-title">James</span>
                 <img src={Icon} />

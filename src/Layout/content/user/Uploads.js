@@ -39,7 +39,7 @@ const Uploads = props => {
 
     return (
         <div>
-            <h1 className="title">Seus Envios:</h1>
+            <h1 className="title">Seus Envios   :</h1>
             <div className="video-container-wrapper">
                 <div className="video-container">
                     {Videos(videoContent)}

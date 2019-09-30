@@ -7,7 +7,7 @@ const Upload = props => {
     const [title, setTitle ] = useState('')
     const [desc, setDesc] = useState('')
     const [file, setFile ] = useState(null)
-    const [thumb, setThumb ] = useState("https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-021aa40c.jpg")
+    const [thumb, setThumb ] = useState("https://www.ehotelsasia.com/wp-content/uploads/2018/10/Black-Background-DX58.jpg")
     const [form, setForm] = useState(null)
 
     const submitVideo = (video, thumb) => {
@@ -89,7 +89,7 @@ const Upload = props => {
                         </div>
                         <div className="field">
                             <label className="label">Thumbnail</label>
-                            <div className="file">
+                            <div className="file is-dark">
                                 <label className="file-label">
                                     <input 
                                         className="file-input" 
@@ -113,7 +113,7 @@ const Upload = props => {
                         <div className="field">
                             <label className="label">Arquivo de Vídeo</label>
                             <div className="control">
-                                <div className="file">
+                                <div className="file is-dark">
                                     <label className="file-label">
                                         <input 
                                             className="file-input" 

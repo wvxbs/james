@@ -11,7 +11,7 @@ const Home = props => {
                 <Detail />
             </div>
             <div className="column is-one-quarter">
-                <Master />                    
+                <Master />
             </div>
         </div>
     )
