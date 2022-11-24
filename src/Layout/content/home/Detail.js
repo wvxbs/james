@@ -5,12 +5,12 @@ const videoContent = [
     {
         'id' : '1',
         'title': 'Maia',
-        'description' : 'homem barbudo roubando idosa'
+        'description' : 'homem barbudo roubando '
     },
     {
         'id' : '2',
         'title': 'Moio',
-        'description' : 'homem barbudão roubando idosa'
+        'description' : 'homem barbudão roubando '
     },
     {
         'id' : '3',
